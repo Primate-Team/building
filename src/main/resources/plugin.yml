@@ -1,0 +1,4 @@
+name: PrimateBuilding
+version: '${project.version}'
+main: ru.samsonium.primate.building.PrimateBuilding
+api-version: '1.20'
