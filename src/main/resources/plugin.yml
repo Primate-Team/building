@@ -6,3 +6,6 @@ commands:
   repair:
     description: Починить предмет
     usage: /<command>
+  tools:
+    description: Получить хорошие инструменты
+    usage: /<command>
