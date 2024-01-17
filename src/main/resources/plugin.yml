@@ -2,3 +2,7 @@ name: PrimateBuilding
 version: '${project.version}'
 main: ru.samsonium.primate.building.PrimateBuilding
 api-version: '1.20'
+commands:
+  repair:
+    description: Починить предмет
+    usage: /<command>
