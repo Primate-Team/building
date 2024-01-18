@@ -2,6 +2,7 @@ package ru.samsonium.primate.building;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import ru.samsonium.primate.building.commands.FightCommand;
+import ru.samsonium.primate.building.commands.FlyCommand;
 import ru.samsonium.primate.building.commands.RepairCommand;
 import ru.samsonium.primate.building.commands.ToolsCommand;
 
@@ -16,6 +17,7 @@ public final class PrimateBuilding extends JavaPlugin {
             Objects.requireNonNull(getCommand("repair")).setExecutor(new RepairCommand());
             Objects.requireNonNull(getCommand("tools")).setExecutor(new ToolsCommand());
             Objects.requireNonNull(getCommand("fight")).setExecutor(new FightCommand());
+            Objects.requireNonNull(getCommand("fly")).setExecutor(new FlyCommand());
         } catch (NullPointerException e) {
             getLogger().log(Level.SEVERE, "Cannot register commands");
         }

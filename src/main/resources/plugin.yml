@@ -12,3 +12,6 @@ commands:
   fight:
     description: Получить зачарованную броню и оружие
     usage: /<command>
+  fly:
+    description: Переключить режим полёта
+    usage: /<command>
