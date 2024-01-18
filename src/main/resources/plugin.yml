@@ -9,3 +9,6 @@ commands:
   tools:
     description: Получить хорошие инструменты
     usage: /<command>
+  fight:
+    description: Получить зачарованную броню и оружие
+    usage: /<command>
