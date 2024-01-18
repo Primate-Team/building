@@ -15,3 +15,6 @@ commands:
   fly:
     description: Переключить режим полёта
     usage: /<command>
+  god:
+    description: Переключить режим бога
+    usage: /<command>
