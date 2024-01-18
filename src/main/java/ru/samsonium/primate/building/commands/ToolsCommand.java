@@ -13,6 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 
 import static net.kyori.adventure.text.Component.text;
+import static net.kyori.adventure.text.format.NamedTextColor.GOLD;
 import static net.kyori.adventure.text.format.NamedTextColor.RED;
 
 public class ToolsCommand implements CommandExecutor {
@@ -24,41 +25,33 @@ public class ToolsCommand implements CommandExecutor {
         }
 
         Player p = (Player) commandSender;
-        Inventory availItems = Bukkit.createInventory(p, 9, "Доступные предметы");
+        Inventory inv = Bukkit.createInventory(p, 9, text("Доступные предметы", GOLD));
 
-        // Super Pickaxe
-        ItemStack pickaxe = new ItemStack(Material.NETHERITE_PICKAXE);
-        ItemMeta pickaxeMeta = pickaxe.getItemMeta();
-        pickaxeMeta.setUnbreakable(true);
-        pickaxeMeta.addEnchant(Enchantment.DIG_SPEED, 5, true);
-        pickaxeMeta.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 5, true);
-        pickaxeMeta.addEnchant(Enchantment.SILK_TOUCH, 5, true);
-        pickaxeMeta.addEnchant(Enchantment.WATER_WORKER, 5, true);
-        pickaxe.setItemMeta(pickaxeMeta);
+        inv.setItem(0, getTool(Material.NETHERITE_PICKAXE));
+        inv.setItem(1, getTool(Material.NETHERITE_SHOVEL));
+        inv.setItem(2, getTool(Material.NETHERITE_AXE));
 
-        // Super Shovel
-        ItemStack shovel = new ItemStack(Material.NETHERITE_SHOVEL);
-        ItemMeta shovelMeta = pickaxe.getItemMeta();
-        shovelMeta.setUnbreakable(true);
-        shovelMeta.addEnchant(Enchantment.DIG_SPEED, 5, true);
-        shovelMeta.addEnchant(Enchantment.SILK_TOUCH, 5, true);
-        shovelMeta.addEnchant(Enchantment.WATER_WORKER, 5, true);
-        shovel.setItemMeta(shovelMeta);
-
-        // Super Axe
-        ItemStack axe = new ItemStack(Material.NETHERITE_AXE);
-        ItemMeta axeMeta = pickaxe.getItemMeta();
-        axeMeta.setUnbreakable(true);
-        axeMeta.addEnchant(Enchantment.DIG_SPEED, 5, true);
-        axeMeta.addEnchant(Enchantment.WATER_WORKER, 5, true);
-        axe.setItemMeta(axeMeta);
-
-        availItems.setItem(0, pickaxe);
-        availItems.setItem(1, shovel);
-        availItems.setItem(2, axe);
-
-        p.openInventory(availItems);
+        p.openInventory(inv);
 
         return true;
+    }
+
+    /**
+     * Creates tool
+     * @param material Tool
+     * @return ItemStack
+     */
+    private ItemStack getTool(Material material) {
+        ItemStack item = new ItemStack(material, 1);
+        ItemMeta meta = item.getItemMeta();
+
+        meta.setUnbreakable(true);
+        meta.addEnchant(Enchantment.DIG_SPEED, 5, true);
+        meta.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 5, true);
+        meta.addEnchant(Enchantment.SILK_TOUCH, 5, true);
+        meta.addEnchant(Enchantment.WATER_WORKER, 5, true);
+
+        item.setItemMeta(meta);
+        return item;
     }
 }
