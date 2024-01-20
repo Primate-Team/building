@@ -48,8 +48,8 @@ public class ToolsCommand implements CommandExecutor {
         meta.setUnbreakable(true);
         meta.addEnchant(Enchantment.DIG_SPEED, 5, true);
         meta.addEnchant(Enchantment.LOOT_BONUS_BLOCKS, 5, true);
-        meta.addEnchant(Enchantment.SILK_TOUCH, 5, true);
         meta.addEnchant(Enchantment.WATER_WORKER, 5, true);
+        meta.addEnchant(Enchantment.VANISHING_CURSE, 5, true);
 
         item.setItemMeta(meta);
         return item;
